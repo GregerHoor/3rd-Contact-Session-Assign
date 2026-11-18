@@ -52,6 +52,7 @@ for i in items_dict:
 cur.execute("SELECT * FROM babyname_2008")
 
 all_names = cur.fetchall()
+print('\nBaby Names Are:')
 print(all_names)
 
 conn.commit()

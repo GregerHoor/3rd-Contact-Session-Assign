@@ -1,4 +1,4 @@
-from question2.to_do_list import ToDoList
+from to_do_list import ToDoList
 from task import Task
 
 import os

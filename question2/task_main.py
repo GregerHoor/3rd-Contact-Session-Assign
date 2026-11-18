@@ -1,10 +1,24 @@
+import os
+import json
+import subprocess
+import sys
+import importlib
+
 from to_do_list import ToDoList
 from task import Task
 
-import os
-import json
+def install_packages():
+    package = ['psycopg', 'dotenv']
+    for p in package:
+        try:
+            importlib.import_module(p)
+            print(f'{p} is already installed')
+        except ImportError:
+            subprocess.check_call([sys.executable, '-m', 'pip', 'install', p])
 
 def main():
+    install_packages()
+    
     to_do = ToDoList()
     task_title = None
     task_index = None

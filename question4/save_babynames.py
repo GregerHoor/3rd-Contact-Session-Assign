@@ -1,5 +1,16 @@
 import re
 import os
+import importlib
+import subprocess
+import sys
+
+package = ['psycopg', 'dotenv']
+for p in package:
+    try:
+        importlib.import_module(p)
+        print(f'{p} is already installed')
+    except ImportError:
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', p])
 
 import psycopg
 from psycopg.types.json import Jsonb
